@@ -58,7 +58,7 @@ function handleOptions(request) {
 export default {
     async fetch(request, env, ctx) {
         const apiKey = req.header('Api-Key');
-        if (apiKey && apiKey === 'abcd') {
+        if (!apiKey || apiKey != 'abcd') {
             return new Response('Invalid API Key!', {
                             headers: { "Access-Control-Allow-Origin": "*", Vary: "Origin" },
                         });
